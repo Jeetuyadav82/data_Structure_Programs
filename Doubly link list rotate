@@ -1,0 +1,21 @@
+def update(llist, p):
+    if llist.head==None or llist.head.next==None:
+        return llist
+        
+    q=0
+    temp=llist.head
+    temp1=llist.head
+    while temp1.next!=None:
+        temp1=temp1.next
+    
+    while p!=q:
+        llist.head=llist.head.next
+        q+=1
+    
+    temp1.next=temp
+    temp.prev=temp1
+    
+    llist.head.prev.next=None
+    llist.head.prev=None
+    
+    return llist
