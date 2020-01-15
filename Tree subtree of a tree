@@ -1,12 +1,23 @@
-def isSubTree(t1,t2):
-    
-    if t2 == None: 
-        return 1;
- 
-    if t1 == None:
-        return 0;
- 
-    if t1.data == t2.data:
-        return isSubTree(t1.left, t2.left) and isSubTree(t1.right, t2.right);
- 
-    return isSubTree(t1.left, t2) or isSubTree(t1.right, t2)
+def areIdentical(root1, root2): 
+    if root1 is None and root2 is None: 
+        return True
+    if root1 is None or root2 is None: 
+        return False
+  
+    return (root1.data == root2.data and 
+            areIdentical(root1.left , root2.left)and
+            areIdentical(root1.right, root2.right) 
+            )  
+  
+def isSubTree(T, S): 
+       
+    if S is None: 
+        return True
+  
+    if T is None: 
+        return False
+  
+    if (areIdentical(T, S)): 
+        return True
+  
+    return isSubTree(T.left, S) or isSubTree(T.right, S)
