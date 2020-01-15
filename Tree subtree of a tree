@@ -1,0 +1,12 @@
+def isSubTree(t1,t2):
+    
+    if t2 == None: 
+        return 1;
+ 
+    if t1 == None:
+        return 0;
+ 
+    if t1.data == t2.data:
+        return isSubTree(t1.left, t2.left) and isSubTree(t1.right, t2.right);
+ 
+    return isSubTree(t1.left, t2) or isSubTree(t1.right, t2)
